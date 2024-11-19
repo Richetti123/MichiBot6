@@ -8,7 +8,7 @@ const handler = async (m, {command, usedPrefix, conn, text}) => {
 if (!text) throw `${mg}${mid.smsMalused4}\n*${usedPrefix + command} Alvaro Diaz - MAMI 100PRE SABE(INTERLUDE)*`
 try {
 if (command == 'play.1') {
-  conn.reply(m.chat, lenguajeGB['smsAvisoEG']() + mid.smsAud, m, { contextInfo: { externalAdReply :{ mediaUrl: null, mediaType: 1, description: null, title: wm, body: '😻 𝗦𝘂𝗽𝗲𝗿 𝗚𝗮𝘁𝗮𝗕𝗼𝘁-𝗠𝗗 - 𝗪𝗵𝗮𝘁𝘀𝗔𝗽𝗽', previewType: 0, thumbnail: gataImg, sourceUrl: accountsgb }}}) 
+  conn.reply(m.chat, lenguajeGB['smsAvisoEG']() + mid.smsAud, m, { contextInfo: { externalAdReply :{ mediaUrl: null, mediaType: 1, description: null, title: wm, body: wm, previewType: 0, thumbnail: gataImg, sourceUrl: accountsgb }}}) 
   try {
     const searches = await fetch('https://www.vanitas-api.online/search/youtube?text=' + text);
     searches = await searches.json();
