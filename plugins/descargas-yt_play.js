@@ -64,14 +64,14 @@ let handler = async (m, { conn, command, args, text, usedPrefix }) => {
 						}}} , { quoted: m });
 					} catch {
 						try {
-							const dataRE = await fetch(`https://deliriussapi-oficial.vercel.app/download/ytmp3?url=${yt_play[0].url}`);
+							const dataRE = await fetch(`https://www.vanitas-api.online/download/youtube-audio?url=${yt_play[0].url}`);
 							const dataRET = await dataRE.json();
 							await conn.sendMessage(m.chat, { audio: { url: dataRET.response.link }, mimetype: 'audio/mpeg',
 								contextInfo: {
 									externalAdReply: {
 										title: yt_play[0].title,
 										body: "",
-										thumbnailUrl:md,
+										thumbnailUrl: yt_play[0].thumbnail,
 										mediaType: 1,
 										showAdAttribution: true,
 										renderLargerThumbnail: true
@@ -127,7 +127,7 @@ renderLargerThumbnail: true
 		if (command == 'play2') {
 			try {
 				let v = yt_play[0].url
-				const dataRE = await fetch(`https://deliriussapi-oficial.vercel.app/download/ytmp4?url=${v}`);
+				const dataRE = await fetch(`https://www.vanitas-api.online/download/youtube-video?url=${v}`);
 				const dataRET = await dataRE.json();
 				console.log(dataRET)
 				await conn.sendMessage(m.chat, { video: { url: dataRET.response.link }, fileName: `error.mp4`, caption: `╭━❰  ${wm}  ❱━⬣\n┃ 💜 ${mid.smsYT1}\n┃ ${yt_play[0].title}\n╰━━━━━❰ *𓃠 ${vs}* ❱━━━━⬣` }, { quoted: m })
