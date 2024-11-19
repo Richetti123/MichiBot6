@@ -32,33 +32,33 @@ global.imagen11 = fs.readFileSync("./media/menus/img10.jpg")
 global.imagen12 = fs.readFileSync("./media/menus/img11.jpg")
 global.imagen13 = fs.readFileSync("./media/menus/img12.jpg")
 
-global.img = 'https://i.ibb.co/D75rBz5/Menu2.jpg'
-global.img2 = 'https://i.ibb.co/D75rBz5/Menu2.jpg'
+global.img = 'https://qu.ax/PGiul.png'
+global.img2 = 'https://qu.ax/PGiul.png'
 
-global.img3 = 'https://i.ibb.co/D75rBz5/Menu2.jpg' //prem
-global.img4 = 'https://i.ibb.co/D75rBz5/Menu2.jpg' //prem
+global.img3 = 'https://qu.ax/PGiul.png' //prem
+global.img4 = 'https://qu.ax/PGiul.png' //prem
 
-global.img5 = 'https://i.ibb.co/D75rBz5/Menu2.jpg'
-global.img6 = 'https://i.ibb.co/D75rBz5/Menu2.jpg'
-global.img7 = 'https://i.ibb.co/D75rBz5/Menu2.jpg'
-global.img8 = 'https://i.ibb.co/D75rBz5/Menu2.jpg'
-global.img9 = 'https://i.ibb.co/D75rBz5/Menu2.jpg'
+global.img5 = 'https://qu.ax/PGiul.png'
+global.img6 = 'https://qu.ax/PGiul.png'
+global.img7 = 'https://qu.ax/PGiul.png'
+global.img8 = 'https://qu.ax/PGiul.png'
+global.img9 = 'https://qu.ax/PGiul.png'
 
-global.img10 = 'https://i.ibb.co/D75rBz5/Menu2.jpg'
-global.img11 = 'https://i.ibb.co/D75rBz5/Menu2.jpg'
-global.img12 = 'https://i.ibb.co/D75rBz5/Menu2.jpg'
-global.img13 = 'https://i.ibb.co/D75rBz5/Menu2.jpg'
-global.img14 = 'https://i.ibb.co/D75rBz5/Menu2.jpg'
-global.img15 = 'https://i.ibb.co/D75rBz5/Menu2.jpg'
+global.img10 = 'https://qu.ax/PGiul.png'
+global.img11 = 'https://qu.ax/PGiul.png'
+global.img12 = 'https://qu.ax/PGiul.png'
+global.img13 = 'https://qu.ax/PGiul.png'
+global.img14 = 'https://qu.ax/PGiul.png'
+global.img15 = 'https://qu.ax/PGiul.png'
 
-global.img16 = 'https://i.ibb.co/D75rBz5/Menu2.jpg' //+18
+global.img16 = 'https://qu.ax/PGiul.png' //+18
 
-global.img17 = 'https://i.ibb.co/D75rBz5/Menu2.jpg'
-global.img18 = 'https://i.ibb.co/D75rBz5/Menu2.jpg'
+global.img17 = 'https://qu.ax/PGiul.png'
+global.img18 = 'https://qu.ax/PGiul.png'
 
-global.logogit = 'https://i.ibb.co/D75rBz5/Menu2.jpg'
+global.logogit = 'https://qu.ax/PGiul.png'
 
-global.gataVidMenu = ['https://i.ibb.co/D75rBz5/Menu2.jpg'].getRandom()
+global.gataVidMenu = ['https://qu.ax/PGiul.png'].getRandom()
 global.gataMenu = [img, img2, img6, img7, img8, img9, img13, img14, img15, img17, img18].getRandom()
 global.gataImg = [imagen1, imagen2, imagen3, imagen4, imagen5, imagen6, imagen7, imagen8, imagen9, imagen10, imagen11, imagen12, imagen13].getRandom()
 
