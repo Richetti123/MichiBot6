@@ -1,39 +1,41 @@
-import { youtubedl, youtubedlv2 } from '@bochilteam/scraper'
-import fetch from 'node-fetch'
-import yts from 'yt-search'
-import ytdl from 'ytdl-core'
-import axios from 'axios'
+import axios from 'axios';
+import yts from 'yt-search';
+import ytdl from 'ytdl-core';
+import { ytDownload } from '../lib/y2mate.js';
+
 let handler = async (m, { conn, args, usedPrefix, command }) => {
-if (!args[0]) return conn.reply(m.chat, `${lenguajeGB['smsAvisoMG']()}${mid.smsMalused7}\n*${usedPrefix + command} https://youtu.be/c5gJRzCi0f0*`, fkontak, m)
-let youtubeLink = '';
-if (args[0].includes('you')) {
-youtubeLink = args[0]; 
-} else {
-const index = parseInt(args[0]) - 1;
-if (index >= 0) {
-if (Array.isArray(global.videoList) && global.videoList.length > 0) {
-const matchingItem = global.videoList.find(item => item.from === m.sender);
-if (matchingItem) {
-if (index < matchingItem.urls.length) {
-youtubeLink = matchingItem.urls[index];
-} else {
-throw `${lenguajeGB['smsAvisoFG']()} ${mid.smsYT} ${matchingItem.urls.length}*`;
-}} else {
-throw `${lenguajeGB['smsAvisoMG']()}${mid.smsY2(usedPrefix, command)} ${usedPrefix}playlist <texto>*`;
-}} else {
-throw `${lenguajeGB['smsAvisoMG']()}${mid.smsY2(usedPrefix, command)}${usedPrefix}playlist <texto>*`;
-}}}  
-await conn.reply(m.chat, lenguajeGB['smsAvisoEG']() + mid.smsVid, fkontak, m)
-try {
-let qu = args[1] || '360'
-let q = qu + 'p'
-let v = youtubeLink
-const yt = await youtubedl(v).catch(async _ => await youtubedlv2(v))
-const dl_url = await yt.video[q].download()
-const ttl = await yt.title
-const size = await yt.video[q].fileSizeH
-await await conn.sendMessage(m.chat, { video: { url: dl_url }, fileName: `${ttl}.mp4`, mimetype: 'video/mp4', caption: `╭━❰  ${wm}  ❱━⬣\n┃ 💜 ${mid.smsYT1}\n┃ ${ttl}\n╰━━━━━❰ *𓃠 ${vs}* ❱━━━━⬣}`, thumbnail: await fetch(yt.thumbnail) }, { quoted: m })
-} catch (E1) {
+	if (!args[0]) return conn.reply(m.chat, `${lenguajeGB['smsAvisoMG']()}${mid.smsMalused7}\n*${usedPrefix + command} https://youtu.be/c5gJRzCi0f0*`, fkontak, m);
+	let youtubeLink = '';
+
+	if (args[0].includes('you')) {
+		youtubeLink = args[0]; 
+	} else {
+		const index = parseInt(args[0]) - 1;
+		if (index >= 0) {
+			if (Array.isArray(global.videoList) && global.videoList.length > 0) {
+				const matchingItem = global.videoList.find(item => item.from === m.sender);
+				if (matchingItem) {
+					if (index < matchingItem.urls.length) {
+						youtubeLink = matchingItem.urls[index];
+					} else {
+						throw `${lenguajeGB['smsAvisoFG']()} ${mid.smsYT} ${matchingItem.urls.length}*`;
+					}
+				} else {
+					throw `${lenguajeGB['smsAvisoMG']()}${mid.smsY2(usedPrefix, command)} ${usedPrefix}playlist <texto>*`;
+				}
+			} else {
+				throw `${lenguajeGB['smsAvisoMG']()}${mid.smsY2(usedPrefix, command)}${usedPrefix}playlist <texto>*`;
+			};
+		};
+	};  
+
+	await conn.reply(m.chat, lenguajeGB['smsAvisoEG']() + mid.smsVid, fkontak, m)
+	try {
+		let v = youtubeLink
+		const dataRE = await fetch(`https://www.vanitas-api.online/download/youtube-audio?url=${v}`);
+		const dataRET = await dataRE.json();
+		await await conn.sendMessage(m.chat, { video: { url: dataRET.response.link }, fileName: `${Date.now()}.mp4`, mimetype: 'video/mp4', caption: `╭━❰  ${wm}  ❱━⬣\n┃ 💜 ${mid.smsYT1}\n╰━━━━━❰ *𓃠 ${vs}* ❱━━━━⬣}` }, { quoted: m })
+	} catch (E1) {
 //console.log('Error 1 ' + E1)  
 try {  
 let mediaa = await ytMp4(youtubeLink)
@@ -41,7 +43,7 @@ await conn.sendMessage(m.chat, { video: { url: mediaa.result }, fileName: `error
 } catch (E2) {  
 //console.log('Error 2 ' + E2)   
 try {
-let lolhuman = await fetch(`https://deliriussapi-oficial.vercel.app/download/ytmp4?&url=${youtubeLink}`)    
+let lolhuman = await fetch(`https://api.lolhuman.xyz/api/ytvideo2?apikey=${lolkeysapi}&url=${youtubeLink}`)    
 let lolh = await lolhuman.json()
 let n = lolh.result.title || 'error'
 let n2 = lolh.result.link
