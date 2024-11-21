@@ -17,7 +17,7 @@ let q = m.quoted ? m.quoted : m;
 let mime = (q.msg || q).mimetype || q.mediaType || "";
 
 let horaActualNum = Date.now();
-const intervaloEsperado = 1 * 60 * 60 * 1000; // 1 hora en milisegundos
+const intervaloEsperado = 12 * 60 * 60 * 1000; //  hora en milisegundos
 let tiempoTranscurrido = horaActualNum - user.fechaUltimoMsjInbox;
 
 console.log(`user.fechaUltimoMsjInbox >${user.fechaUltimoMsjInbox}<`); //Luego comentar
@@ -25,7 +25,7 @@ console.log(`horaActualNum >${horaActualNum}<`); //Luego comentar
 console.log(`tiempoTranscurrido >${tiempoTranscurrido}<`); //Luego comentar
 
 if (tiempoTranscurrido >= intervaloEsperado) {
-   await m.reply(`*🐱Hola @${m.sender.split`@`[0]}, bienvenido al chatbot de MichiBot🐱*\n> Soy el asistente virtual de Geri, y estare a cargo de atenderte hoy\n\n*En esta ocasion tenemos a la venta:*\n🤖Bot de etiquetas\n📝Bot personalizado\n📨APK de spam\n🎶APK de Spotify premium`, false, {mentions: [m.sender]});
+   await m.reply(`*😼Hola @${m.sender.split`@`[0]}, soy MichiBot un bot de whatsapp que fue creado para hacerte todo mas facil😼*\n▫️Tengo integradas a todas tus redes sociales favoritas, desde tiktok e Instagram hasta YouTube\n▫️Cuento con una inteligencia artificial que es capaz de hacer imágenes y por supuesto también tengo incluida a la IA más popular del momento CHATGPT🤖\n\n*Si quieres obtener este bot comunicate a los siguientes números*\n> https://walink.co/61cb43\n> https://walink.co/0c9982`, false, {mentions: [m.sender]});
     user.fechaUltimoMsjInbox = horaActualNum;
     return;
 }
