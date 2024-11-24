@@ -30,8 +30,14 @@ let handler = async (m, { text, conn, args, usedPrefix, command }) => {
 
 			await conn.reply(m.chat, lenguajeGB['smsAvisoEG']() + mid.smsAud, fkontak, m)
 
+			try {
+				let v = youtubeLink;
+				const dataRE = await fetch(`https://www.vanitas-api.online/download/youtube-audio?url=${v}`);
+				const dataRET = await dataRE.json();
+				await conn.sendMessage(m.chat, { audio: { url: dataRET.response.link }, fileName: `audio.mp3`, mimetype: 'audio/mp4' }, { quoted: m })  
+			} catch {
 				try {
-					let lolhuman = await fetch(`https://www.vanitas-api.online/download/youtube-audio?url=${youtubeLink}`)    
+					let lolhuman = await fetch(`https://api.lolhuman.xyz/api/ytaudio2?apikey=${lolkeysapi}&url=${youtubeLink}`)    
 					let lolh = await lolhuman.json()
 					let n = lolh.result.title || 'error'
 					await conn.sendMessage(m.chat, { audio: { url: lolh.result.link }, fileName: `${n}.mp3`, mimetype: 'audio/mp4' }, { quoted: m })  
@@ -47,7 +53,7 @@ let handler = async (m, { text, conn, args, usedPrefix, command }) => {
 						console.log(`❗❗ ${lenguajeGB['smsMensError2']()} ${usedPrefix + command} ❗❗`)
 						console.log(e)}
 					}
-				;
+				};
 			};
 
 handler.command = /^audio|fgmp3|dlmp3|getaud|yt(a|mp3)$/i
