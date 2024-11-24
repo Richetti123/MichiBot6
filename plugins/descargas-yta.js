@@ -29,6 +29,15 @@ let handler = async (m, { text, conn, args, usedPrefix, command }) => {
 			};
 
 			await conn.reply(m.chat, lenguajeGB['smsAvisoEG']() + mid.smsAud, fkontak, m)
+try {
+let q = '128kbps'
+let v = youtubeLink
+const yt = await youtubedl(v).catch(async _ => await youtubedlv2(v))
+const dl_url = await yt.audio[q].download()
+const ttl = await yt.title
+const size = await yt.audio[q].fileSizeH
+await conn.sendFile(m.chat, dl_url, ttl + '.mp3', null, m, false, { mimetype: 'audio/mp4' })
+} catch {
 
 			try {
 				let v = youtubeLink;
@@ -54,7 +63,7 @@ let handler = async (m, { text, conn, args, usedPrefix, command }) => {
 						console.log(e)}
 					}
 				};
-			};
+			}};
 
 handler.command = /^audio|fgmp3|dlmp3|getaud|yt(a|mp3)$/i
 export default handler
