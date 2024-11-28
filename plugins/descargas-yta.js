@@ -32,10 +32,11 @@ let handler = async (m, { text, conn, args, usedPrefix, command }) => {
 
 			try {
 				let v = youtubeLink;
-				const dataRE = await fetch(`https://www.vanitas-api.online/download/youtube-audio?url=${v}`);
+				const dataRE = await fetch(`https://www.vanitas-api.online/download/ytmp3?url=${v}`);
 				const dataRET = await dataRE.json();
-				await conn.sendFile(m.chat, dataRET.response.link, 'default.mp3', null, m, false, { mimetype: 'audio/mp4' });
-			} catch {
+
+				await conn.sendFile(m.chat, dataRET.response.link, 'default.mp3', null, m, false, { mimetype: 'audio/mpeg' });
+			} catch(e) {
 				try {
 					let lolhuman = await fetch(`https://api.lolhuman.xyz/api/ytaudio2?apikey=${lolkeysapi}&url=${youtubeLink}`)    
 					let lolh = await lolhuman.json()

@@ -17,7 +17,7 @@ conn.reply(m.chat, `${lenguajeGB['smsAvisoEG']()}𝙋𝙍𝙊𝙉𝙏𝙊 𝙏�
 if (command == 'playaudiodoc' || command == 'ytmp3doc') {
 try {
 const v = yt_play[0].url;
-const dataRE = await fetch(`https://www.vanitas-api.online/download/youtube-audio?url=${v}`);
+const dataRE = await fetch(`https://www.vanitas-api.online/download/ytmp3?url=${v}`);
 const dataRET = await dataRE.json();
 let cap = `╭━❰  ${wm}  ❱━⬣\n┃📥 𝙔𝙊𝙐𝙏𝙐𝘽𝙀 𝘿𝙇 📥\n┃ও *${mid.smsYT1}:* \n┃﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘\n┃ও *${mid.smsYT11}:*\n╰━━━━━❰ *𓃠 ${vs}* ❱━━━━⬣`.trim()
 await conn.sendMessage(m.chat, { document: { url: dataRET.response.link }, fileName: `${Date.now()}.mp3`, caption: cap, mimetype: 'audio/mpeg', contextInfo: {
@@ -68,7 +68,7 @@ handler.limit = 2
 if (command == 'playvideodoc' || command == 'ytmp4doc') {
 try {
 const v = yt_play[0].url;
-const dataRE = await fetch(`https://www.vanitas-api.online/download/youtube-video?url=${v}`);
+const dataRE = await fetch(`https://www.vanitas-api.online/download/ytmp4?url=${v}`);
 const dataRET = await dataRE.json();
 await conn.sendMessage(m.chat, { document: { url: dataRET.response.link }, caption: `╭━❰  ${wm}  ❱━⬣\n┃📥 𝙔𝙊𝙐𝙏𝙐𝘽𝙀 𝘿𝙇 📥\n┃ও *${mid.smsYT1}:* \n┃﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘\n┃ও *${mid.smsYT11}:*\n╰━━━━━❰ *𓃠 ${vs}* ❱━━━━⬣`, fileName: `${Date.now()}.mp4`, mimetype: 'video/mp4', contextInfo: {
 externalAdReply: {

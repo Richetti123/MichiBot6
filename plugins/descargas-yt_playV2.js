@@ -13,7 +13,7 @@ if (command == 'play.1') {
     const searches = await fetch('https://www.vanitas-api.online/search/youtube?text=' + text);
     searches = await searches.json();
 
-    const dataRE = await fetch(`https://www.vanitas-api.online/download/youtube-audio?url=${searches.response[0].url}`);
+    const dataRE = await fetch(`https://www.vanitas-api.online/download/ytmp3?url=${searches.response[0].url}`);
     const dataRET = await dataRE.json();
     
     const aa = await conn.sendMessage(m.chat, {audio: {url: dataRET.response.link }, fileName: `error.mp3`, mimetype: 'audio/mp4'}, {quoted: m});
@@ -32,7 +32,7 @@ if (command == 'play.1') {
         const searches = await fetch('https://www.vanitas-api.online/search/youtube?text=' + text);
         searches = await searches.json();
     
-        const dataRE = await fetch(`https://www.vanitas-api.online/download/youtube-video?url=${searches.response[0].url}`);
+        const dataRE = await fetch(`https://www.vanitas-api.online/download/ytmp4?url=${searches.response[0].url}`);
         const dataRET = await dataRE.json();
 
         const aa_2 = await conn.sendMessage(m.chat, {video: {url: dataRET.response.link }, fileName: `error.mp4`, caption: `${wm}`, thumbnail: mediaa.thumb, mimetype: 'video/mp4'}, {quoted: m});
